@@ -1,0 +1,8 @@
+<!DOCTYPE html>
+<html>
+  <h1>Welcome Gossip number <%= @gossip.id %></h1>
+  <p><strong>Username :</strong> <%= @gossip.user.first_name %></p>
+  <p><strong>Title :</strong> <%= @gossip.title%></p>
+  <p><strong>Author :</strong> <%= link_to @gossip.user.first_name, user_path(@gossip.user)%></p>
+
+</html>
