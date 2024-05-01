@@ -1,0 +1,30 @@
+<html>
+  <body>
+  <% if flash[:danger] %>
+    <div class="alert alert-danger">
+      <%= flash[:danger] %>
+    </div>
+  <% end %>
+
+<div class="container mt-5">
+  <%= form_tag gossips_path, method: :post do %>
+  <div class="form-group">
+    <label for="title">Titre :</label><br>
+    <%= text_field_tag 'gossip[title]', nil, class: "form-control" %><br>
+  </div>
+
+  <div class="form-group">
+    <label for="desc">Contenu :</label><br>
+    <%= text_field_tag 'gossip[description]', nil, class: "form-control" %><br><br>
+  </div>
+
+  <div class="form-group">
+    <%= label_tag :user_id, "Author" %>
+    <%= select_tag 'gossip[user_id]', options_for_select(User.all.collect { |u| [u.first_name, u.id] }), class: "form-control" %>
+  </div>
+
+  <%= submit_tag "Submit" %>
+  <% end %>
+</div>
+  </body>
+</html>

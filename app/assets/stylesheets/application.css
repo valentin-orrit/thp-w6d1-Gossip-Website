@@ -11,5 +11,15 @@
   text-decoration: none;
 }
 
+.jumbotron {
+  background-image: url("gossip_project_hero-blurred.jpg");
+  background-size: cover;
+}
+
+body {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 @import 'bootstrap/scss/bootstrap';
 @import 'bootstrap-icons/font/bootstrap-icons';

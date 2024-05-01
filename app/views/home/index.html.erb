@@ -3,14 +3,28 @@
   <head>
     <title>The Gossip Project</title>
   </head>
+
   <body>
-  <h1>The Gossip Project</h1>
+  <% if flash[:success] %>
+    <div class="alert alert-success">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container" style="height: 200px;">
+      <h1 class="display-4, text-warning-emphasis, text-light">The Gossip Project</h1>
+      <br>
+      <%= link_to "Create a New Gossip", new_gossip_path , class:"btn btn-dark" %> 
+    </div>
+  </div>
+
   <div class="container mt-5">
     <div class="row">
       <% @gossips.each do |gossip| %>
         <div class="col-md-3 mb-3">
           <div class="card">
-            <div class="card-header">Gossip n°<%= gossip.id %></div>
+            <div class="card-header bg-secondary text-dark">Gossip n°<%= gossip.id %></div>
             <div class="card-body">
               <h5 class="card-title"><%= gossip.title %></h5>
               <p class="card-text"><i>Created by:</i> <%= link_to gossip.user.first_name, user_path(gossip.user)%></p>

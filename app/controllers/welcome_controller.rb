@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
   def show
     puts "$" * 60
-    puts params[:first_name]
+    puts params[:id]
     puts "$" * 60
   end
 end
