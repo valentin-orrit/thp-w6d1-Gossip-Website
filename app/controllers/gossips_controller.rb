@@ -23,9 +23,28 @@ class GossipsController < ApplicationController
     redirect_to root_path
   end
 
+  def edit
+    @gossip = Gossip.find(params[:id])
+  end
+
+  def update
+    @gossip = Gossip.find(params[:id])
+    if @gossip.update(edit_params)
+      redirect_to gossips_path
+      flash[:success] = "Gossip successfully edited"
+    else
+      flash[:danger] = "Gossip didn't edit!"
+      render :edit
+    end
+  end
+
   private
 
   def gossip_params
     params.require(:gossip).permit(:title, :description, :user_id)
+  end
+
+  def edit_params
+    params.require(:gossip).permit(:title, :content)
   end
 end

@@ -4,4 +4,5 @@
     <p><strong>Last name :</strong> <%= @user.last_name%></p>
     <p><strong>Age :</strong> <%= @user.age%></p>
     <p><strong>Email :</strong> <%= @user.email%></p>
+    <p><strong>City :</strong> <%= link_to @user.city.name, city_path(@user.city) %></p>
 </body>

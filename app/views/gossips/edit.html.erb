@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <% if flash[:danger] %>
+    <div class="alert alert-danger">
+      <%= flash[:danger] %>
+    </div>
+  <% end %>
+  
+    <div class="container mt-5">
+        <%= form_for @gossip do |f| %>
+      <div class="form-group">
+        <label>Titre :</label><br>
+        <%= f.text_field :title, class: "form-control" %><br>
+      </div>
+
+      <div class="form-group">
+        <label for="desc">Contenu :</label><br>
+        <%= f.text_area :description, class: "form-control" %><br>
+      </div>
+
+      <%= submit_tag "Edit" %>
+    <% end %>
+    </div>
+  </body>
+</html>
+
+
+
+
+<!-- 
+<body>
+    <div class="container mt-5">
+        <%= form_tag edit_gossip_path, method: :post do %>
+      <div class="form-group">
+        <label for="title">Titre :</label><br>
+        <%= text_field_tag 'gossip[title]', @gossip.title, class: "form-control" %><br>
+      </div>
+
+      <div class="form-group">
+        <label for="desc">Contenu :</label><br>
+        <%= text_field_tag 'gossip[description]', @gossip.description, class: "form-control" %><br>
+      </div>
+
+      <%= submit_tag "Edit" %>
+    <% end %>
+    </div>
+  </body>
+-->
