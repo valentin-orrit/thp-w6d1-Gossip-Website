@@ -5,7 +5,12 @@
   <p><strong>Description :</strong> <%= @gossip.description%></p>
   <p><strong>Author :</strong> <%= link_to @gossip.user.first_name, user_path(@gossip.user)%></p>
   <p><strong>Author's City :</strong> <%= link_to @gossip.user.city.name, city_path(@gossip.user.city) %></p>
+
   <div>
-  <%= link_to "Edit", edit_gossip_path , class:"btn btn-dark" %>
+  <%= link_to "Edit", edit_gossip_path, class:"btn btn-dark" %>
+  </div>
+  <br>
+  <div>
+  <%= button_to "Delete", gossip_path(@gossip), method: :delete, data: {turbo_confirm: 'operate.delete_confirm?'}, class:"btn btn-danger" %>
   </div>
 </html>
